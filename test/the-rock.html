@@ -1,42 +1,6 @@
-<!DOCTYPE html>
-<html xmlns:og="http://opengraphprotocol.org/schema/">
-<head>
-	<title>OGP Parser Test Suite</title>
-	
-	<!-- OGP data -->
-	<meta property="og:title" content="The Rock"/>
-  <meta property="og:type" content="movie"/>
-  <meta property="og:url" content="http://www.imdb.com/title/tt0117500/"/>
-  <meta property="og:image" content="http://ia.media-imdb.com/rock.jpg"/>
-  
-  <!-- Test code and stylesheets -->
-	<link rel="stylesheet" href="/qunit/qunit/qunit.css" type="text/css" media="screen">
-	<link rel="stylesheet" href="/tests.css" type="text/css" media="screen">
-	<script type="text/javascript" src="/qunit/qunit/qunit.js"></script>
-	<script type="text/javascript" src="/jquery/jquery-1.4.2.min.js"></script>
-	<script type="text/javascript" src="/test-results.js"></script>
-	<script type="text/javascript" src="/src/jquery.ogp.js"></script>
-	<script type="text/javascript" src="the-rock.js"></script>
-</head>
-<body>
-	<h1 id="qunit-header">Open Graph Protocol Test Suite</h1>
-	<h2 id="qunit-banner"></h2>
-	<div id="qunit-testrunner-toolbar"></div>
-	<h2 id="qunit-userAgent"></h2>
-	
-	<!-- HTML used in the tests -->
-	<div class="examples">
-    <h2>Example 1: The famous "The Rock" example</h2>
-    <p>Here's the html:</p>
-    <pre class="brush: html;">
-      &lt;meta property="og:title" content="The Rock"/&gt;
-      &lt;meta property="og:type" content="movie"/&gt;
-      &lt;meta property="og:url" content="http://www.imdb.com/title/tt0117500/"/&gt;
-      &lt;meta property="og:image" content="http://ia.media-imdb.com/rock.jpg"/&gt;
-    </pre>
-  </div>
-  
-  <!-- Test results -->
-	<ol id="qunit-tests"></ol>
-</body>
-</html>
+<title>The famous example of 'The Rock' from IMDb</title>
+
+<meta property="og:title" content="The Rock"/>
+<meta property="og:type" content="movie"/>
+<meta property="og:url" content="http://www.imdb.com/title/tt0117500/"/>
+<meta property="og:image" content="http://ia.media-imdb.com/rock.jpg"/>

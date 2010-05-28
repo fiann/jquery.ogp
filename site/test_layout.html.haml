@@ -1,0 +1,31 @@
+!!! 5
+%html(xmlns:og="http://opengraphprotocol.org/schema/")
+  %head
+    %title= @title 
+
+    / OGP data
+    != @metatags
+
+    / Test code and stylesheets
+    %link(rel="stylesheet" type="text/css" media="screen" href="/qunit/qunit/qunit.css")
+    %link(rel="stylesheet" type="text/css" media="screen" href="/tests.css")
+    %script{:type => "text/javascript", :src => "/qunit/qunit/qunit.js"}
+    %script{:type => "text/javascript", :src => "/jquery/jquery-1.4.2.min.js"}
+    %script{:type => "text/javascript", :src => "/test-results.js"}
+    %script{:type => "text/javascript", :src => "/src/jquery.ogp.js"}
+    %script{:type => "text/javascript", :src => "#{@filename}.js"}
+
+  %body
+    %h1#qunit-header Open Graph Protocol Test Suite
+    %h2#qunit-banner
+    %div#qunit-testrunner-toolbar
+    %h2#qunit-userAgent
+
+    / HTML used in the tests  
+    %div.examples
+      %h2= @title
+      %p Here's the html:
+      %pre(class="brush: html;")&= @metatags
+
+    / Test results
+    %ol#qunit-tests

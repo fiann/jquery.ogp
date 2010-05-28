@@ -2,12 +2,13 @@
 
 require 'rubygems'
 require 'sinatra'
-require 'erb'
+require 'haml'
 require 'logger'
 
 ROOT = File.join(File.dirname(__FILE__), '..')
 set :root, ROOT
 set :public, Proc.new { File.join(root, 'site') }
+set :views, Proc.new { File.join(root, 'site') }
 set :lib, Proc.new { File.join(root, 'lib') }
 
 configure do
@@ -38,7 +39,17 @@ end
 get '/test/*' do
   file = params[:splat].join '/'
   file = 'index.html' if file.empty?
-  send_file File.join(settings.root, 'test', file)
+  
+  if file =~ /\.html$/
+    content = File.read("#{settings.root}/test/#{file}")
+    @filename = /^(.+)\.html$/.match(file)[1]
+    @title = /<title>(.+)<\/title>/.match(content)[1] || "Open Graph Protocol test page"
+    @metatags = content.gsub(/(<title>.*<\/title>)/, "")
+    haml :"test_layout.html"    
+  else
+    send_file File.join(settings.root, 'test', params[:splat])
+  end
+  
 end
 
 # QUnit is used as the test runner
