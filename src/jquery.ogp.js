@@ -19,7 +19,7 @@
   }
   
   $.fn.ogp = function() {
-    var ns = null, data = [];
+    var ns = null, data = {};
     $(this).each(function () {
       $(this).parents().andSelf().each(function () {
         ns = checkNamespacePresent(this);
@@ -44,7 +44,8 @@
           key = prop.substring(ns.length);
           value = $(this).attr("content");
           console.log("Found OGP data %s=%s", key, value);
-          data.push( {key:value} );
+          data[key] = data[key] || [];
+          data[key].push(value);
         }
       });
     });
