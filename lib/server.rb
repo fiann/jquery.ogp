@@ -26,6 +26,11 @@ get '/' do
   send_file File.join(settings.public, 'index.html')
 end
 
+get '/README' do
+  require 'maruku'
+  Maruku.new(File.read("#{settings.root}/README.markdown")).to_html
+end
+
 # Unit tests for the plugin
 get '/test' do
   redirect '/test/'
