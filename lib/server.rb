@@ -38,9 +38,17 @@ get '/test' do
 end
 get '/test/*' do
   file = params[:splat].join '/'
-  file = 'index.html' if file.empty?
   
-  if file =~ /\.html$/
+  if file.empty?
+    @listing = ""
+    Dir.new("#{settings.root}/test/").each do | filename |
+      next unless filename =~ /\.html$/
+      @listing << <<-TEXT
+        <li><a href="/test/#{filename}">#{filename}</a></li>
+      TEXT
+    end
+    haml :"tests.html"
+  elsif file =~ /\.html$/
     content = File.read("#{settings.root}/test/#{file}")
     @filename = /^(.+)\.html$/.match(file)[1]
     @title = /<title>(.+)<\/title>/.match(content)[1] || "Open Graph Protocol test page"
