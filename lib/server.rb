@@ -1,6 +1,4 @@
 # Creates a simple Sinatra website for the tests
-
-require 'rubygems'
 require 'sinatra'
 require 'haml'
 require 'logger'
