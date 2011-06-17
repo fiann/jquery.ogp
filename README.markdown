@@ -43,3 +43,9 @@ to run all the tests in a simulated browser environment.
  [o2j]: http://srv.buzzword.org.uk/opengraph-to-json.html
  [sn]: http://www.sinatrarb.com/
  [env]: http://github.com/smparkes/env-js
+
+# License #
+
+This code is licensed under the [BSD license][bsd]. There's just a stub at the moment, but help yourself if it's useful to you.
+
+ [bsd]: http://www.opensource.org/licenses/bsd-license.php
