@@ -37,7 +37,7 @@ end
 get '/test/*' do
   file = params[:splat].join '/'
   
-  if file.empty?
+  if file.empty? || file == 'index.html'
     @listing = ""
     Dir.new("#{settings.root}/test/").each do | filename |
       next unless filename =~ /\.html$/
